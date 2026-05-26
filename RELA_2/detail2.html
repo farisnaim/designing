@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <title>Butiran Program | MyRELA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-sage-50 p-10">
+
+    <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg border">
+        <h1 id="progTitle" class="text-3xl font-serif font-bold text-sage-900 mb-4 capitalize">Loading...</h1>
+        
+        <p id="progDesc" class="text-slate-700 leading-relaxed">Sila tunggu...</p>
+        
+        <a href="RELA_design2.html" class="mt-8 inline-block text-sage-600 font-bold hover:underline">
+            ← Kembali ke Utama
+        </a>
+    </div>
+
+    <script>
+        // 1. Get the parameter from the URL (e.g., ?program=bengkel)
+        const params = new URLSearchParams(window.location.search);
+        const program = params.get('program');
+
+        // 2. Define the content for each branch
+        const data = {
+            bengkel: { title: "Bengkel", desc: "Butiran lengkap mengenai bengkel: jadual, peralatan, dan prosedur penyertaan." },
+            kursus: { title: "Kursus", desc: "Maklumat mengenai program pembelajaran, silibus, dan pensijilan kursus RELA." },
+            program: { title: "Program", desc: "Senarai program komuniti dan aktiviti sukarelawan yang sedang dijalankan." },
+            seminar: { title: "Seminar", desc: "Info mengenai seminar keselamatan, jemputan penceramah, dan tempat." },
+            latihan: { title: "Latihan", desc: "Jadual latihan fizikal taktikal dan keperluan kesihatan anggota." },
+            perhatian: { title: "Perhatian", desc: "Pengumuman penting dan notis rasmi untuk semua anggota RELA." }
+        };
+
+        // 3. Update the page content
+        if (program && data[program]) {
+            document.getElementById('progTitle').innerText = data[program].title;
+            document.getElementById('progDesc').innerText = data[program].desc;
+        } else {
+            document.getElementById('progTitle').innerText = "Program Tidak Dijumpai";
+            document.getElementById('progDesc').innerText = "Maaf, maklumat untuk program ini tidak tersedia.";
+        }
+    </script>
+</body>
+</html>

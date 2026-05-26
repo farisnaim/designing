@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYRELA Portal Digital Jabatan Sukarelawan Malaysia</title>
+    <link rel="icon" type="image/x-icon" href="R_prebet.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        mont: [' Montserrat'],
+      },
+colors: {
+  // ==========================================
+  // TEMA 1: SAGE FOREST & CHALK WHITE (Hijau & Putih)
+  // Tema semulajadi yang bersih, segar, dan sangat sejuk pada mata.
+  // ==========================================
+  sage: {
+    50: '#f2f6ee',
+    100: '#e3ebd9',
+    200: '#c9d9ba',
+    300: '#a9c296',
+    400: '#89aa73',
+    500: '#6d8f57', // Sage Utama
+    600: '#557342',
+    700: '#435a34',
+    800: '#334329',
+    900: '#25301f', // Pengganti hitam tegar
+  },
+  chalk: {
+    50: '#fafbfa', // Latar belakang skrin redup
+    100: '#f3f5f2',
+    200: '#e6eae3',
+    300: '#d5dbd0',
+    400: '#bec6b7',
+    500: '#a3ad9a',
+    600: '#848f7a',
+    700: '#697361',
+    800: '#50574a',
+    900: '#393e35',
+  },
+  custard: {
+          50: '#fffdf0',
+          100: '#fffaba',
+          200: '#fff578', // Warna Custard Utama (Eye Relax)
+          300: '#fbe261',
+          400: '#ebd144',
+          500: '#d6bc2d',
+          600: '#b88902',
+          700: '#946b00',
+          800: '#705000',
+          900: '#4b3600',
+        },
+        // Palet Army Green (Premium, Hidup & Rasmi)
+        armyGreen: {
+          50: '#f4f6f0',
+          100: '#e5ebdb',
+          200: '#cedbbd',
+          300: '#abbf92',
+          400: '#839e66',
+          500: '#617d47', // Army Green Standard
+          600: '#4b6236', // Army Green Dalaman (Sangat Premium)
+          700: '#3c4e2c',
+          800: '#2b3820',
+          900: '#1d2616', // Menggantikan Hitam Kusam (Dull Black)
+        },
+  // Hierarki teks berasaskan tona Kelabu-Kapur yang sejuk
+  slateTextTheme1: {
+    'dark': '#2a2e28',       // Untuk Headline / Tajuk Besar (Kontras tinggi)
+    'body': '#3b4038',       // Selesa untuk membaca artikel panjang/perenggan
+    'muted': '#5c6356',      // Untuk sub-tajuk, label, atau tarikh/masa
+    'disabled': '#8d9687',   // Untuk placeholder teks atau elemen tidak aktif
+    'sage-dark': '#25301f',  // Tona 900: Teks highlight di atas kad cerah
+    'sage-mid': '#435a34',   // Tona 700: Untuk pautan (links) atau penekanan kata
+    'chalk-dark': '#393e35', // Teks sekunder yang sangat redup
+    'code-dim': '#464d41',   // Vibe terminal/monospace berasaskan tona sage
+  },
+    },
+        boxShadow: {
+// --- KOLEKSI GLOW (Menggunakan warna Custard & Hijau anda) ---
+        'glass': '0 8px 32px 0 rgba(75, 98, 54, 0.06)',
+        'glow': '0 0 25px rgba(255, 245, 120, 0.35)',
+        'glow-green': '0 0 25px rgba(75, 98, 54, 0.2)',
+        
+        // 1. Premium Soft Glow (Kombinasi 2 lapisan supaya glow nampak lebih natural & tersebar luas)
+        'glow-ambient': '0 0 15px rgba(255, 245, 120, 0.3), 0 0 40px rgba(255, 245, 120, 0.15)',
+        
+        // 2. Sharp/Intense Glow (Sesuai untuk border/indicator kecil seperti dot status aktif)
+        'glow-sharp': '0 0 8px 2px rgba(255, 245, 120, 0.6)',
+
+        // --- KOLEKSI SOFT & AMBIENT SHADOWS (Untuk elemen terapung/floating) ---
+        // 3. Smooth Butter (Bayang super lembut berasaskan tona hijau gelap anda, bukan hitam tulen)
+        'soft-sm': '0 2px 8px rgba(75, 98, 54, 0.04)',
+        'soft-md': '0 12px 24px -4px rgba(75, 98, 54, 0.06), 0 4px 12px -2px rgba(75, 98, 54, 0.04)',
+        'soft-lg': '0 20px 40px -8px rgba(75, 98, 54, 0.08), 0 8px 20px -4px rgba(75, 98, 54, 0.04)',
+
+        // --- KOLEKSI KESAN DALAMAN / PRESS EFFECT (Untuk input fields atau butang aktif) ---
+        // 4. Inset/Pressed (Bila user klik butang atau fokus pada text-input)
+        'inner-soft': 'inset 0 2px 4px 0 rgba(75, 98, 54, 0.06)',
+        'inner-glow': 'inset 0 0 12px rgba(255, 245, 120, 0.2)',
+
+                 }
+            }
+    }
+}
+</script>
+
+<style>
+/* Kekalkan fungsi glassmorphism tersuai yang harmoni dengan Army Green & sage */
+/* =========================================================================
+   TEMA 1: SAGE FOREST & CHALK WHITE (Hijau & Putih)
+   Menggunakan kod warna asas daripada palet 'sage' & 'chalk'
+   ========================================================================= */
+
+/* Lapisan Cerah (Default): Menggunakan base off-white Chalk 50 */
+.t1-glass {
+  background: rgba(250, 251, 250, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(109, 143, 87, 0.2);
+/* Sempadan Sage 500 halus */
+}
+
+/* Lapisan Gelap: Berasaskan Sage 900 (Malam Organik) */
+.t1-glass-dark {
+  background: rgba(37, 48, 31, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(227, 235, 217, 0.25);
+/* Sempadan Chalk 100 redup */
+}
+
+/* Lapisan Berwarna (Sage Accent Gel): Berasaskan Sage 500 */
+.t1-glass-sage {
+  background: rgba(109, 143, 87, 0.40);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 2px solid rgba(85, 115, 66, 0.6);
+/* Sempadan pekat Sage 600 */
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+    <style>
+        /* Custom Keyframes & Utilities for Premium Feel */
+        @keyframes blob-float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        @keyframes soft-pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+        .animate-blob {
+            animation: blob-float 10s infinite ease-in-out;
+        }
+        .animate-pulse-soft {
+            animation: soft-pulse 4s infinite ease-in-out;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .glassmorphism-dark {
+            background: rgba(30, 30, 31, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 206, 27, 0.15);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-sage-50 text-chalk-900 font-sans antialiased overflow-x-hidden selection:bg-chalk-600/30">
+
+  <div id="loader" class="fixed inset-0 z-[100] bg-chalk-900 flex flex-col items-center justify-center transition-opacity duration-700">
+    <div class="relative w-24 h-24 mb-4">
+      <div class="absolute inset-0 border-4 border-sage-200/20 rounded-full"></div>
+      <div class="absolute inset-0 border-4 border-t-sage-200 rounded-full animate-spin"></div>
+      <i class="fa-solid fa-shield-halved absolute inset-0 flex items-center justify-center text-sage-200 text-3xl"></i>
+    </div>
+    <p class="text-chalk-100 font-medium tracking-widest text-sm uppercase">Memuatkan MyRELA...</p>
+  </div>
+
+  <button id="scrollTopBtn" class="fixed bottom-8 right-8 z-50 bg-white hover:bg-chalk-600 text-chalk-900 hover:text-white border border-chalk-200 p-4 rounded-full shadow-lg opacity-0 translate-y-10 pointer-events-none transition-all duration-300 hover:scale-110 group" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up group-hover:-translate-y-1 transition-transform"></i>
+  </button>
+
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-custard-800 backdrop-blur-md text-white transition-all duration-300 shadow-md px-6 lg:px-16 py-4 border-b border-chalk-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <a href="#home" class="flex items-center space-x-3 group">
+        <div class="w-12 h-12">
+          <img src="R_prebet.svg" alt="My Website Logo" width="100" height="100">         
+        </div>
+        <span class="text-xl font-bold tracking-tight text-chalk-400 group-hover:text-sage-500 transition-colors">
+         <img src="MyRELA.svg" alt="My Website Logo" width="80" height="80">
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-sm font-medium tracking-wide text-beige-100 hover:text-chalk-600 transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-sage-500 hover:after:w-full after:transition-all">Utama</a>
+        <a href="#about" class="text-sm font-medium tracking-wide text-beige-100 hover:text-chalk-600 transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-sage-500 hover:after:w-full after:transition-all">Mengenai RELA</a>
+        <a href="#services" class="text-sm font-medium tracking-wide text-beige-100 hover:text-chalk-600 transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-sage-500 hover:after:w-full after:transition-all">Perkhidmatan</a>
+        <a href="#modul" class="text-sm font-medium tracking-wide text-beige-100 hover:text-chalk-600 transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-sage-500 hover:after:w-full after:transition-all">Modul Strategi</a>
+        <a href="#contact" class="text-sm font-medium tracking-wide text-beige-100 hover:text-chalk-600 transition-colors relative after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-sage-500 hover:after:w-full after:transition-all">Hubungi</a>
+      </div>
+
+      <div class="hidden md:block">
+        <a href="#" class="px-6 py-2.5 rounded-full border-2 border-sage-700 text-yellow-400 font-medium text-sm tracking-wide bg-white/45 backdrop-blur-sm hover:bg-sage-200 hover:text-chalk-900 shadow-sm hover:shadow-glow transition-all duration-300">
+          Log Masuk <i class="fa-solid fa-arrow-right-to-bracket ml-2 text-xs"></i>
+        </a>
+      </div>
+
+      <button id="mobileMenuBtn" class="md:hidden text-chalk-100 hover:text-sage-200 p-2 focus:outline-none" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="absolute top-full left-0 w-full bg-chalk-900/95 backdrop-blur-md shadow-xl border-b border-chalk-800 hidden flex-col px-8 py-6 space-y-4 transition-all duration-300">
+      <a href="#home" class="mobile-link text-base font-medium text-white hover:text-sage-500">Utama</a>
+      <a href="#about" class="mobile-link text-base font-medium text-chalk-400 hover:text-sage-500">Mengenai RELA</a>
+      <a href="#services" class="mobile-link text-base font-medium text-chalk-400 hover:text-sage-500">Perkhidmatan</a>
+      <a href="#modul" class="mobile-link text-base font-medium text-chalk-400 hover:text-sage-500">Modul Strategi</a>
+      <a href="#contact" class="mobile-link text-base font-medium text-chalk-400 hover:text-sage-500">Hubungi</a>
+      <hr class="border-chalk-800">
+      <a href="#" class="w-full text-center px-6 py-3 rounded-xl bg-sage-200 text-chalk-900 font-medium block shadow-md">Log Masuk</a>
+    </div>
+  </nav>
+
+  <header id="home" class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 min-h-screen flex flex-col items-center overflow-hidden z-40 bg-gradient-to-br from-armyGreen-800 via-sage-850 to-chalk-950">
+    
+    <div class="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-chalk-200/20 mix-blend-multiply filter blur-[120px] animate-blob z-0"></div>
+    <div class="absolute top-[15%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-sage-300/40 mix-blend-multiply filter blur-[100px] animate-blob z-0" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-7xl mx-auto w-full px-6 lg:px-16 flex flex-col items-center relative z-10 text-center">
+      
+      <div class="inline-flex items-center justify-center space-x-2 px-5 py-2 rounded-full shadow-sm bg-custard-800/85 backdrop-blur-md border-0 border-sage-500/50 mb-8 transform hover:scale-105 transition duration-300">
+        <span class="w-2 h-2 rounded-full bg-custard-200 animate-pulse"></span>
+        <span class="text-xs uppercase font-semibold tracking-widest text-custard-100">Platform Transformasi Digital</span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-serif font-bold text-custard-200 leading-[1.1] mb-8 max-w-4xl mx-auto drop-shadow-2xl">
+        Bersama, <span class="text-transparent bg-clip-text bg-gradient-to-r from-custard-200 to-white">Kita Kuat</span>
+      </h1>
+
+      <p class="text-base md:text-xl text-chalk-100 max-w-2xl mx-auto font-light leading-relaxed mb-10 opacity-90">
+        Memperkasa rakyat melalui disiplin, khidmat, teknologi, dan perpaduan nasional. Bersama memelihara keselamatan dan kesejahteraan komuniti negara.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5 w-full">
+        <a href="#services" class="w-full sm:w-auto px-8 py-4 text-center rounded-full bg-gradient-to-r from-custard-500 to-custard-400 text-chalk-900 border-2 border-armyGreen-800 font-bold tracking-wide shadow-glow hover:shadow-glow-ambient transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+          Servis yang Ditawarkan <i class="fa-solid fa-compass ml-2 text-sm"></i>
+        </a>
+        <a href="#about" class="w-full sm:w-auto px-8 py-4 text-center rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-armyGreen-800 font-medium tracking-wide hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-md">
+          Modul Tersedia
+        </a>
+      </div>
+    </div>
+
+    <div class="w-full max-w-[95%] lg:max-w-[90%] mt-16 relative z-20 group">
+        <div class="w-full h-[350px] lg:h-[480px] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 relative">
+            <img src="https://images2.imgbox.com/56/96/naHIdj4K_o.png" alt="RELA Backdrop" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-chalk-900/90 via-chalk-900/40 to-transparent"></div>
+            
+            <div class="absolute bottom-8 left-8 right-8 lg:bottom-12 lg:left-12 lg:max-w-md bg-chalk-900/80 p-6 lg:p-8 rounded-3xl border border-sage-500/30 shadow-glass transform hover:-translate-y-2 transition duration-500">
+                <div class="flex items-start space-x-4">
+                    <div class="w-20 h-20 bg-sage-400 rounded-full flex items-center justify-center">
+                        <img src="https://images2.imgbox.com/4b/85/OY9rjmpe_o.png" alt="Profile Image" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-serif text-chalk-50 font-semibold tracking-wide">Teras Disiplin & Kesetiaan</h3>
+                        <p class="text-xs md:text-sm text-sage-100 mt-2 font-light leading-relaxed">
+                            Barisan sukarelawan berwibawa memacu ketahanan nasional berasaskan teknologi interaktif bersepadu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute top-8 right-8 glassmorphism px-4 py-2.5 rounded-xl flex items-center space-x-3 shadow-lg animate-bounce" style="animation-duration: 4s;">
+                <i class="fa-solid fa-circle-check text-sage-600 text-base"></i>
+                <p class="text-[11px] font-bold tracking-wider text-chalk-900 uppercase">Patriotik & Efektif</p>
+            </div>
+        </div>
+    </div>
+  </header>
+
+  <section id="services" class="py-24 bg-gradient-to-b from-custard-600 via-custard-400 to-chalk-300 px-6 lg:px-16 relative">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-4xl mx-auto mb-16 reveal">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-chalk-200 mb-6">Memperkasa Komuniti Melalui Inovasi Digital Bersepadu</h2>
+            <div class="w-24 h-1.5 bg-sage-500 mx-auto mb-8 rounded-full"></div>
+            <p class="text-sage-100 text-lg font-light leading-relaxed">
+                Platform sistem MyRELA mendigitalisasikan keseluruhan pengurusan keanggotaan sukarelawan, gerak kerja operasi pentadbiran, serta aksesibiliti telus kemudahan perkhidmatan awam.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            
+            <a href="#" class="md:col-span-12 lg:col-span-6 lg:row-span-2 group block bg-gradient-to-br from-sage-800 to-armyGreen-700 p-10 lg:p-14 rounded-[2rem] shadow-glass hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden reveal">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-custard-400/10 rounded-full blur-3xl group-hover:bg-custard-400/20 transition duration-500"></div>
+                
+                <div class="relative z-10 h-full flex flex-col justify-between">
+                    <div class="w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-id-card text-custard-300 text-4xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl lg:text-5xl font-serif font-semibold text-white mb-4">Permohonan Online</h3>
+                        <p class="text-base text-sage-100 font-light leading-relaxed mb-8 max-w-md">Pendaftaran ahli baharu Jabatan Sukarelawan Malaysia secara pantas dan berintegrasi digital sepenuhnya.</p>
+                        <div class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-sm font-semibold uppercase tracking-wider text-custard-200 group-hover:bg-custard-400 group-hover:text-armyGreen-900 transition-colors">
+                            Sila Pohon <i class="fa-solid fa-arrow-right ml-3 transition-transform group-hover:translate-x-2"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="md:col-span-6 lg:col-span-3 group block glassmorphism p-8 rounded-[2rem] shadow-glass hover:shadow-glow transition-all duration-300 hover:bg-white transform hover:-translate-y-1.5 relative overflow-hidden reveal">
+                <div class="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors duration-300">
+                    <i class="fa-solid fa-building-shield text-sage-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-slate-dark mb-2">Daftar Agensi</h3>
+                <p class="text-sm text-slate-dark/70 font-light leading-relaxed mb-6">Modul khas agensi korporat mahupun kerajaan bagi memohon kolaborasi dan pendaftaran skuad sokongan.</p>
+                <div class="flex items-center text-xs font-semibold uppercase tracking-wider text-sage-600">
+                    Sila Pohon <i class="fa-solid fa-chevron-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                </div>
+            </a>
+
+            <a href="#" class="md:col-span-6 lg:col-span-3 group block glassmorphism p-8 rounded-[2rem] shadow-glass hover:shadow-glow transition-all duration-300 hover:bg-white transform hover:-translate-y-1.5 relative overflow-hidden reveal">
+                <div class="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors duration-300">
+                    <i class="fa-solid fa-magnifying-glass-chart text-sage-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-slate-dark mb-2">Semak Status</h3>
+                <p class="text-sm text-slate-dark/70 font-light leading-relaxed mb-6">Semakan keputusan permohonan keanggotaan, penugasan, mahupun urusan rasmi jabatan.</p>
+                <div class="flex items-center text-xs font-semibold uppercase tracking-wider text-sage-600">
+                    Sila Pohon <i class="fa-solid fa-chevron-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                </div>
+            </a>
+
+            <a href="#" class="md:col-span-4 lg:col-span-2 group block glassmorphism p-8 rounded-[2rem] shadow-glass hover:shadow-glow transition-all duration-300 hover:bg-white transform hover:-translate-y-1.5 relative overflow-hidden reveal">
+                <div class="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors duration-300">
+                    <i class="fa-solid fa-graduation-cap text-sage-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-slate-dark mb-2">Ikuti Kursus</h3>
+                <p class="text-sm text-slate-dark/70 font-light leading-relaxed mb-6">Hab pembelajaran digital, pengurusan jadual latihan fizikal taktikal, serta pensijilan rasmi RELA.</p>
+                <div class="flex items-center text-xs font-semibold uppercase tracking-wider text-sage-600">
+                    Sila Pohon <i class="fa-solid fa-chevron-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                </div>
+            </a>
+
+            <a href="#" class="md:col-span-4 lg:col-span-2 group block glassmorphism p-8 rounded-[2rem] shadow-glass hover:shadow-glow transition-all duration-300 hover:bg-white transform hover:-translate-y-1.5 relative overflow-hidden reveal">
+                <div class="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors duration-300">
+                    <i class="fa-solid fa-handshake-angle text-sage-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-slate-dark mb-2">Mohon Kawalan</h3>
+                <p class="text-sm text-slate-dark/70 font-light leading-relaxed mb-6">Permohonan rasmi khidmat kawalan keselamatan komuniti dan bantuan kecemasan setempat.</p>
+                <div class="flex items-center text-xs font-semibold uppercase tracking-wider text-sage-600">
+                    Sila Pohon <i class="fa-solid fa-chevron-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                </div>
+            </a>
+
+            <a href="#" class="md:col-span-4 lg:col-span-2 group block glassmorphism p-8 rounded-[2rem] shadow-glass hover:shadow-glow transition-all duration-300 hover:bg-white transform hover:-translate-y-1.5 relative overflow-hidden reveal">
+                <div class="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-6 group-hover:bg-sage-600 transition-colors duration-300">
+                    <i class="fa-solid fa-medal text-sage-600 text-2xl group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-2xl font-serif font-semibold text-slate-dark mb-2">Pencalonan Pingat</h3>
+                <p class="text-sm text-slate-dark/70 font-light leading-relaxed mb-6">Sistem pencalonan dan semakan anugerah kehormat serta pingat jasa khidmat cemerlang anggota.</p>
+                <div class="flex items-center text-xs font-semibold uppercase tracking-wider text-sage-600">
+                    Sila Pohon <i class="fa-solid fa-chevron-right ml-2 transition-transform group-hover:translate-x-2"></i>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+  </section>
+
+<section id="modul" class="py-24 bg-gradient-to-b from-chalk-300 via-custard-400 to-custard-600 text-armyGreen-50 px-6 lg:px-16 relative">
+    <div class="absolute top-[40%] right-[10%] w-[50vw] h-auto rounded-full bg-sage-400/5 filter blur-[120px] animate-pulse-soft"></div>
+    <div class="absolute bottom-0 left-[-10%] w-[40vw] h-auto rounded-full bg-sage-400/5 filter blur-[100px] animate-pulse-soft"></div>
+    
+    
+    <!-- Increased max-w to full (or you can set to max-w-[95rem]) for a wider belt area -->
+    <div class="max-w-[95rem] h-auto mx-auto relative z-10 overflow-visible">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal px-4">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center space-x-2 bg-chalk-400 border border-sage400-50 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-custard-800/85 mb-4">Pengurusan Dalaman</div>
+                <h2 class="text-2xl md:text-4xl font-serif text-armyGreen-800/90 font-bold tracking-tight mb-4">Iklan Program RELA</h2>
+                <div class="w-28 h-1 bg-gradient-to-r from-sage-400 to-sage-600 mb-4 rounded-full"></div>
+                <p class="font-light text-base leading-relaxed text-custard-900/95">
+                    Iklan program RELA yang menonjolkan keunikan dan manfaatnya.
+                </p> 
+            </div>
+        </div>
+
+        <style>
+            .t1-glass-sage { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); }
+            .scroll-container { scroll-behavior: smooth; }
+            .scroll-container::-webkit-scrollbar { display: none; }
+            .scroll-container { -ms-overflow-style: none; scrollbar-width: none; }
+        </style>
+        
+        <!-- Adjusted padding and added width to make the belt feel more expansive -->
+        <div id="carouselOuterWrapper" class="relative w-full group shadow-none overflow-visible py-12 px-2 md:px-8">
+            
+            <button onclick="scrollManual('left')" class="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 hover:bg-sage-600/90 text-white w-12 h-12 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+
+            <button onclick="scrollManual('right')" class="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-50 bg-black/50 hover:bg-sage-600/90 text-white w-12 h-12 rounded-full border border-white/10 flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+            
+            <div id="marqueeSlider" class="scroll-container overflow-x-auto w-full flex gap-6 items-center py-5 px-4">
+                
+                <!-- Cards width increased from 16vw to 20vw on desktop -->
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/3c/a5/KvLV7mml_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-user-shield text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Bengkel</h3>
+                        </div>
+                        
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">
+                            Penjadualan dan pengurusan bengkel pelatihan, sumber pembelajaran praktis, peralatan dan kemudahan bengkel, serta dokumentasi peserta.
+                        </p>
+
+                        <a href="detail4.html?program=bengkel" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200 mt-4">
+                            Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/22/4d/JgBrcHmI_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-chalkboard-user text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Kursus</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Kurikulum pembelajaran, pengurusan kelas, materi kursus, penilaian peserta, dan penerbitan sertifikat keselesaian kursus.</p>
+                        <a href="detail4.html?program=kursus" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/2e/60/YPIr4fJJ_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-scale-balanced text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Seminar</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Pengurusan acara seminar, pendaftaran peserta, undangan pembicara, ruang pertemuan, dan dokumentasi hasil seminar.</p>
+                        <a href="detail4.html?program=seminar" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/22/4d/JgBrcHmI_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-ribbon text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Latihan</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Program latihan terpadu, penjejakan prestasi peserta, penghargaan pencapaian, dan pengembangan keterampilan berkelanjutan.</p>
+                        <a href="detail4.html?program=latihan" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/2e/60/YPIr4fJJ_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-truck-ramp-box text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Program</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Perencanaan program strategis, alokasi sumber daya, penjadwalan aktivitas, pemantauan pelaksanaan, dan evaluasi hasil program.</p>
+                        <a href="detail4.html?program=program" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/3c/a5/KvLV7mml_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-user-shield text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Bengkel</h3>
+                        </div>
+                        
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">
+                            Penjadualan dan pengurusan bengkel pelatihan, sumber pembelajaran praktis, peralatan dan kemudahan bengkel, serta dokumentasi peserta.
+                        </p>
+
+                        <a href="detail4.html?program=bengkel" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200 mt-4">
+                            Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/22/4d/JgBrcHmI_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-chalkboard-user text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Kursus</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Kurikulum pembelajaran, pengurusan kelas, materi kursus, penilaian peserta, dan penerbitan sertifikat keselesaian kursus.</p>
+                        <a href="detail4.html?program=kursus" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/2e/60/YPIr4fJJ_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-scale-balanced text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Seminar</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Pengurusan acara seminar, pendaftaran peserta, undangan pembicara, ruang pertemuan, dan dokumentasi hasil seminar.</p>
+                        <a href="detail4.html?program=seminar" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/22/4d/JgBrcHmI_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-ribbon text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Latihan</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Program latihan terpadu, penjejakan prestasi peserta, penghargaan pencapaian, dan pengembangan keterampilan berkelanjutan.</p>
+                        <a href="detail4.html?program=latihan" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] aspect-[3/4] flex-shrink-0 group/card transition-all duration-300 ease-out hover:scale-[1.3] hover:z-50 relative overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images2.imgbox.com/2e/60/YPIr4fJJ_o.jpg" 
+                            class="w-full h-full object-cover" alt="Background">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                    </div>
+
+                    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+                        <div class="flex flex-col gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover/card:bg-sage-500 group-hover/card:text-white transition-all duration-300">
+                                <i class="fa-solid fa-truck-ramp-box text-2xl text-sage-200"></i>
+                            </div>
+                            <h3 class="text-base font-semibold text-beige-100">Program</h3>
+                        </div>
+                        <p class="text-[11px] font-light text-white/50 leading-relaxed mt-auto">Perencanaan program strategis, alokasi sumber daya, penjadwalan aktivitas, pemantauan pelaksanaan, dan evaluasi hasil program.</p>
+                        <a href="detail4.html?program=program" class="text-xs font-bold text-sage-300 hover:text-white transition-colors duration-200">
+                                Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Repeat for other cards with the same updated width classes: w-[70vw] sm:w-[45vw] md:w-[30vw] lg:w-[20vw] -->
+                <!-- [I have omitted the duplicate blocks for brevity, ensure you update the 'w-' classes on your remaining cards similarly] -->
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const slider = document.getElementById('marqueeSlider');
+        const outerWrapper = document.getElementById('carouselOuterWrapper');
+        let isPaused = false;
+        const scrollSpeed = 0.8;
+
+        function getLoopThreshold() { return slider.scrollWidth / 2; }
+
+        function autoScroll() {
+            if (!isPaused) {
+                slider.scrollLeft += scrollSpeed;
+                if (slider.scrollLeft >= getLoopThreshold()) { slider.scrollLeft = 0; }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        requestAnimationFrame(autoScroll);
+        outerWrapper.addEventListener('mouseenter', () => isPaused = true);
+        outerWrapper.addEventListener('mouseleave', () => isPaused = false);
+
+        function scrollManual(direction) {
+            const firstCard = slider.querySelector('.group\\/card');
+            const cardWidth = firstCard.offsetWidth + 32;
+            const threshold = getLoopThreshold();
+            
+            if (direction === 'left') {
+                slider.scrollLeft = (slider.scrollLeft <= 0) ? threshold - cardWidth : slider.scrollLeft - cardWidth;
+            } else {
+                slider.scrollLeft = (slider.scrollLeft >= threshold - 5) ? 0 : slider.scrollLeft + cardWidth;
+            }
+        }
+    </script>
+</section>
+  
+<section id="about" class="py-24 lg:py-32 bg-gradient-to-b from-custard-600 via-sage-300 to-armyGreen-800 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16 relative">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 relative items-center">
+            
+            <div class="lg:col-span-6 relative z-0 reveal">
+                <div class="w-full h-[350px] lg:h-[500px] rounded-bl-[4rem] rounded-tr-[4rem] lg:rounded-bl-[6rem] lg:rounded-tr-[6rem] front-card-bg relative overflow-hidden shadow-2xl border-4 border-white">
+                    <div class="absolute inset-10 bg-[linear-gradient(to_right,#6d8f57_1px,transparent_2px),linear-gradient(to_bottom,#6d8f57_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20"></div>
+                    <style>
+                        .front-card-bg { background-image: url('https://images2.imgbox.com/82/c0/kleHZHfV_o.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+                    </style>
+                </div>
+                
+                <div class="absolute -bottom-6 -left-6 bg-custard-300 w-24 h-24 rounded-full mix-blend-multiply blur-xl animate-pulse-soft"></div>
+            </div>
+
+            <div class="lg:col-span-6 z-10 reveal">
+                <div class="glassmorphism-dark bg-armyGreen-900/95 p-10 lg:p-14 rounded-[2.5rem] shadow-2xl border border-sage-700/50">
+                    <div class="inline-flex items-center space-x-2 bg-sage-800 text-custard-200 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6 border border-sage-600">Profil Korporat</div>
+                    
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">MyRELA</h2>
+                    <div class="w-16 h-1.5 bg-gradient-to-r from-sage-400 to-sage-600 rounded-full mb-8"></div>
+                    
+                    <div class="space-y-6 text-sage-50">
+                        <p class="text-base font-light leading-relaxed text-justify opacity-90">
+                            RELA Malaysia merupakan sebuah badan sukarelawan kebangsaan yang didedikasikan untuk menyokong keselamatan awam, penglibatan komuniti, keharmonian nasional, dan respons kecemasan melalui penyertaan warganegara yang berdisiplin serta transformasi digital moden.
+                        </p>
+                        <p class="text-base font-light leading-relaxed text-justify opacity-90">
+                            Ditubuhkan dengan matlamat memperkukuh daya tahan komuniti tempatan, MyRELA kini berinovasi melalui sistem bersepadu bagi melahirkan barisan sukarelawan berdisiplin tinggi, responsif, dan bersedia mendepani sebarang cabaran demi memelihara ketenteraman kedaulatan tanah air.
+                        </p>
+                    </div>
+
+                    <div class="pt-10 mt-10 border-t border-sage-700/50 grid grid-cols-2 gap-8">
+                        <div>
+                            <span class="block text-4xl lg:text-5xl font-bold text-white font-serif mb-2">2026</span>
+                            <span class="text-xs text-custard-200 uppercase tracking-wider font-medium">Era Komuniti Digital</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl lg:text-5xl font-bold text-white font-serif mb-2">100%</span>
+                            <span class="text-xs text-custard-200 uppercase tracking-wider font-medium">Komitmen Awam Bersepadu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+  <section id="modul-2" class="py-24 bg-gradient-to-b from-armyGreen-700 to-sage-400  text-white px-6 lg:px-16 relative overflow-hidden">
+    <div class="absolute top-[40%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-sage-400/5 filter blur-[120px] animate-pulse-soft"></div>
+    <div class="absolute bottom-0 left-[-10%] w-[40vw] h-[40vw] rounded-full bg-sage-400/5 filter blur-[100px] animate-pulse-soft"></div>
+    
+    <div class="max-w-[90rem] mx-auto relative z-10"> <!-- or max-w-full with padding -->
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-widest text-sage-200 mb-4">Pengurusan Dalaman</div>
+                <h2 class="text-2xl md:text-4xl font-serif font-bold tracking-tight mb-4">Modul Sistem MyRELA</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-sage-400 to-sage-600 mb-4 rounded-full"></div>
+                <p class="font-light text-base leading-relaxed text-white/90">
+                    Platform pengurusan dalaman yang menyeluruh untuk operasi RELA, dengan modul khusus untuk keanggotaan, latihan, tatatertib, logistik, dan banyak lagi.
+                </p> 
+            </div>
+        </div>
+
+        <div class="relative w-full group/carousel px-4">
+            
+            <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 z-20 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-sage-300 hover:bg-white/20 hover:text-white hover:border-sage-400/40 active:scale-95 transition-all duration-200 shadow-xl opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100" aria-label="Slide Sebelumnya">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+
+            <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 z-20 w-12 h-12 rounded-xl bg-gradient-to-br from-sage-500 to-sage-600 flex items-center justify-center text-white hover:from-sage-400 hover:to-sage-500 active:scale-95 transition-all duration-200 shadow-md shadow-sage-900/20 opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100" aria-label="Slide Seterusnya">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+
+            <style>
+                .scrollbar-none::-webkit-scrollbar { display: none; }
+                .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+                .t1-glass-sage { background: rgba(94, 132, 7, 0.486); backdrop-filter: blur(6px); }
+            </style>
+            
+            <div class="overflow-hidden w-full px-2">
+                <div id="carouselContainer" class="flex items-stretch gap-6 py-4 transition-transform duration-700 ease-out">
+                    
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-user-shield text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Anggota</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Pengurusan pendaftaran, profiling maklumat asas, rekrutmen, dan status keanggotaan aktif seluruh Malaysia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-chalkboard-user text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Latihan</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Modul penjadualan kursus kemahiran, penjejakan merit latihan asas, latihan menembak, dan pengurusan sijil kecekapan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-scale-balanced text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Tatatertib</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Sistem kawalan integriti, pemantauan aduan salah laku, rekod siasatan dalaman, tindakan disiplin, dan pematuhan etika am.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-ribbon text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Pingat</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Pengurusan pencalonan bintang penghormatan, kriteria penganugerahan pingat, rekod sijil jasa kebesaran, dan ganjaran khas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-truck-ramp-box text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Logistik</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Sistem pemantauan inventori gudang pusat, pengagihan aset pertahanan awam, kenderaan jabatan, dan inventori persenjataan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-chart-line text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Prestasi</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Metrik pencapaian KPI tahunan peringkat daerah dan negeri, penilaian kecekapan operasi, kuota tugasan, dan analitik data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-shirt text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Pakaian</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Permohonan, penjejakan, ukuran saiz, dan pembekalan berpusat pakaian seragam rasmi operasi (No. 1 hingga No. 4).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-calendar-check text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Penugasan</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Pengurusan arahan tugasan keselamatan komuniti, penempatan bantuan bencana, rondaan kejiranan, dan log ela awam.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-building text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Pejabat</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Sistem automasi pejabat, pengurusan fail fail digital rasmi, direktori direktori cawangan negeri, dan memo dalaman.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-clock text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Kedatangan</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Perekodan kehadiran bertugas secara masa nyata, penjejakan waktu operasi kecemasan, dan sistem pengesahan geolokasi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-users-gear text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Sumber Manusia</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Pengurusan perjawatan pegawai tetap, kenaikan pangkat, urusan cuti, penilaian prestasi tahunan staf, dan kebajikan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-calendar-days text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Program</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Kalendar aktiviti kemasyarakatan, pengurusan acara rasmi jabatan, kempen kesedaran awam, dan program khidmat bakti.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-card w-[80vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] flex-shrink-0 group">
+                        <div class="h-full flex flex-col gap-4 p-6 rounded-2xl t1-glass-sage border border-sage-50/10 hover:border-sage-400/40 hover:bg-armyGreen-800/85 transition-all duration-200 shadow-md hover:shadow-glow transition-shadow">
+                            <div class="w-14 h-14 rounded-xl bg-sage-500/10 flex items-center justify-center text-sage-300 group-hover:bg-sage-500 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-mobile-screen-button text-3xl/10 text-sage-200"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-beige-100 mb-1">Aplikasi Mudah Alih</h3>
+                                <p class="text-xs font-light text-white/50 leading-relaxed">Integrasi gerbang mudah alih untuk keanggotaan pantas, notifikasi tugasan kecemasan semasa, dan semakan maklumat profil.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section id="contact" class="py-24 bg-gradient-to-b from-sage-700 via-sage-800 to-armyGreen-800 px-6 lg:px-16 reveal relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-custard-600/50 skew-x-12 translate-x-16 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        
+        <div class="text-left text-white space-y-6">
+            <h2 class="text-5xl lg:text-6xl font-serif font-bold text-white leading-[1.1]">Hubungi Teras <br>Khidmat Kami</h2>
+            <div class="w-20 h-1.5 bg-custard-400 rounded-full"></div>
+            <p class="text-base text-sage-100 max-w-md font-light leading-relaxed">
+                Sila berhubung dengan pusat pentadbiran kami untuk sebarang kemusykilan berkenaan sistem keanggotaan digital MyRELA.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-6 relative">
+            
+            <a href="tel:+60388805000" class="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10 shadow-lg ml-0 mr-12 lg:mr-24 hover:bg-white/10 transition-colors transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-custard-400/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-phone text-custard-300 text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-sage-300 uppercase tracking-widest font-semibold mb-1">Telefon</p>
+                        <p class="text-lg font-medium text-white">+603-8880 5000</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="mailto:korporat@rela.gov.my" class="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10 shadow-lg ml-8 lg:ml-20 mr-4 hover:bg-white/10 transition-colors transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-custard-400/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-envelope text-custard-300 text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-sage-300 uppercase tracking-widest font-semibold mb-1">E-mel Rasmi</p>
+                        <p class="text-lg font-medium text-white">korporat@rela.gov.my</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10 shadow-lg ml-0 mr-12 lg:mr-24 hover:bg-white/10 transition-colors transform hover:-translate-y-1">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-full bg-custard-400/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-building text-custard-300 text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-sage-300 uppercase tracking-widest font-semibold mb-1">Waktu Operasi</p>
+                        <p class="text-lg font-medium text-white">8:00 AM — 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <footer class="bg-custard-800/80 text-white py-6 px-6 md:px-8">
+    <div class="w-full max-w-7xl mx-auto flex flex-col gap-8">
+        
+        <a href="#home" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 ">
+            <img src="R_prebet.svg" alt="My Website Logo" width="100" height="100">         
+        </div>
+          <span class="text-xl font-bold tracking-tight text-chalk-200 group-hover:text-sage-900 transition-colors">
+           <img src="MyRELA.svg" alt="My Website Logo" width="80" height="80">
+          </span>
+        </a>
+
+        <div class="flex flex-col sm:flex-row items-start sm:justify-between gap-8 lg:gap-16 pt-2">
+            
+            <a href="https://www.google.com/maps/dir/?api=1&destination=2.93947541579308, 101.7043940032287"
+			target="_blank"
+			class="w-full sm:w-1/2 lg:w-3/5">
+                <p class="text-xs text-chalk-200 leading-relaxed font-light">
+                    Ibu Pejabat Jabatan Sukarelawan Malaysia (RELA),<br>
+                    Aras 7-9, Blok D4, Kompleks D,
+                    Pusat Pentadbiran Kerajaan Persekutuan,<br>
+                    62508 W.P. Putrajaya,<br> Malaysia.
+                </p>
+            </a>
+            
+            <div class="flex items-center justify-start sm:justify-end gap-6 w-full sm:w-1/2 lg:w-2/5 flex-shrink-0">
+                <a href="#" class="text-white/70 hover:text-[#fff578] transition transform hover:-translate-y-0.5 duration-200" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-white/70 hover:text-[#fff578] transition transform hover:-translate-y-0.5 duration-200" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-white/70 hover:text-[#fff578] transition transform hover:-translate-y-0.5 duration-200" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram text-xl"></i>
+                </a>
+            </div>
+
+        </div>
+            <div class="max-w-8xl mx-auto border-t border-white/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p class="text-[11px] text-beige-100/40 font-light">&copy; 2026 MyRELA Jabatan Sukarelawan Malaysia. Hak Cipta Terpelihara.</p>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+        // 1. Loader Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('opacity-0');
+                setTimeout(() => loader.remove(), 700);
+            }, 400);
+        });
+        
+        // 2. Navbar Sticky Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'shadow-md', 'py-4', 'backdrop-blur-md');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-white/90', 'shadow-md', 'backdrop-blur-md');
+                navbar.classList.add('py-6');
+            }
+        });
+        
+        // 3. Mobile Navigation Drawer
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+        
+        // 4. Scroll Reveal Engine
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const triggerBottom = window.innerHeight * 0.85;
+            revealElements.forEach(el => {
+                const elTop = el.getBoundingClientRect().top;
+                if (elTop < triggerBottom) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger instantly on load
+
+        window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    
+    if (window.scrollY > 50) {
+        // SCROLLED STATE: Changes background to White and text to dark gray/black
+        navbar.classList.remove('bg-olive-900', 'text-white');
+        navbar.classList.add('bg-white', 'text-slate-800', 'shadow-md');
+    } else {
+        // TOP OF PAGE STATE: Restores original dark Olive Green and white text
+        navbar.classList.remove('bg-white', 'text-slate-800', 'shadow-md');
+        navbar.classList.add('bg-olive-900', 'text-white');
+    }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("carouselContainer");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    
+    if (!container || !prevBtn || !nextBtn) return;
+
+    const originalCards = Array.from(container.children);
+    const cardCount = originalCards.length;
+    const itemsToClone = 4; // Buffer items for loop safety
+
+    // 1. Clone items for infinite loop illusion
+    for (let i = cardCount - itemsToClone; i < cardCount; i++) {
+        container.insertBefore(originalCards[i].cloneNode(true), container.firstChild);
+    }
+    for (let i = 0; i < itemsToClone; i++) {
+        container.appendChild(originalCards[i].cloneNode(true));
+    }
+
+    // 2. Track indices and metrics
+    let currentIndex = itemsToClone; 
+    const gap = 24; // gap-6 = 24px
+
+    function getCardWidth() {
+        return originalCards[0].getBoundingClientRect().width;
+    }
+
+    // 3. The Core Smooth Movement Function
+    function updatePosition(smooth = true) {
+        if (smooth) {
+            // "ease-out" makes it slide smoothly and slow down elegantly at the end
+            container.style.transition = "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)";
+        } else {
+            container.style.transition = "none";
+        }
+        
+        const cardWidth = getCardWidth();
+        const offset = currentIndex * (cardWidth + gap);
+        
+        // Move using modern GPU acceleration (completely removes the choppy snapping)
+        container.style.transform = `translateX(-${offset}px)`;
+    }
+
+    // Initial jump to the real first card (skip clones) without animation
+    setTimeout(() => updatePosition(false), 50);
+
+    // 4. Button Controls with Infinite Loop Check
+    let isTransitioning = false;
+    function handleNavigate(direction) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        if (direction === "next") {
+            currentIndex++;
+        } else {
+            currentIndex--;
+        }
+
+        updatePosition(true);
+    }
+
+    nextBtn.addEventListener("click", () => handleNavigate("next"));
+    prevBtn.addEventListener("click", () => handleNavigate("prev"));
+
+    // 5. Watch for the end of the smooth transition to silently reset index
+    container.addEventListener("transitionend", () => {
+        isTransitioning = false;
+
+        // If we slid past the last card into the clones -> jump back to start card silently
+        if (currentIndex >= cardCount + itemsToClone) {
+            currentIndex = itemsToClone;
+            updatePosition(false); 
+        }
+        // If we slid backwards past the first card -> jump to end card silently
+        if (currentIndex <= itemsToClone - 1) {
+            currentIndex = cardCount + itemsToClone - 1;
+            updatePosition(false);
+        }
+    });
+
+    // Keep it responsive if window size changes
+    window.addEventListener("resize", () => updatePosition(false));
+});
+  </script>
+
+</body>
+</html>
